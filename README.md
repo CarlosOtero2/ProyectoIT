@@ -1,2 +1,0 @@
-# ProyectoIT
-Página web. InnoSept
