@@ -64,7 +64,7 @@ nav ul li a {
 
 /* Estilos de la sección hero */
 #hero {
-    background-image: url("/Imganes\ e\ iconos/Designer.jpeg");
+    background-image: url("Imganes\ e\ iconos/Designer.jpeg");
     background-size: cover;
     background-position: center;
     color: white;
