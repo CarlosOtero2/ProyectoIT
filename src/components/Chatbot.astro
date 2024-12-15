@@ -1,0 +1,154 @@
+---
+---
+
+<div id="chatbot" class="fixed bottom-6 right-6 z-50">
+  <!-- Chatbot Button -->
+  <button
+    id="chatbot-toggle"
+    class="bg-primary text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center hover:bg-secondary transition-colors"
+    aria-label="Abrir chat"
+  >
+    <i class="fas fa-comments text-2xl"></i>
+  </button>
+
+  <!-- Chatbot Window -->
+  <div
+    id="chatbot-window"
+    class="hidden absolute bottom-20 right-0 w-96 bg-white rounded-lg shadow-xl"
+  >
+    <div class="bg-primary text-white p-4 rounded-t-lg">
+      <div class="flex justify-between items-center">
+        <h3 class="font-bold">Asistente Virtual SOITCO</h3>
+        <button id="chatbot-close" class="text-white hover:text-gray-200">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div class="h-96 overflow-y-auto p-4" id="chat-messages">
+      <div class="mb-4">
+        <div class="bg-gray-100 p-3 rounded-lg inline-block">
+          ¡Hola! Soy el asistente virtual de SOITCO. ¿Cómo puedo ayudarte hoy?
+        </div>
+      </div>
+    </div>
+
+    <div class="p-4 border-t">
+      <div class="flex gap-2">
+        <button
+          class="quick-reply bg-gray-100 px-4 py-2 rounded-full text-sm hover:bg-gray-200 transition-colors"
+        >
+          Servicios
+        </button>
+        <button
+          class="quick-reply bg-gray-100 px-4 py-2 rounded-full text-sm hover:bg-gray-200 transition-colors"
+        >
+          Precios
+        </button>
+        <button
+          class="quick-reply bg-gray-100 px-4 py-2 rounded-full text-sm hover:bg-gray-200 transition-colors"
+        >
+          Contacto
+        </button>
+      </div>
+      <div class="mt-4 flex gap-2">
+        <input
+          type="text"
+          id="chat-input"
+          placeholder="Escribe tu mensaje..."
+          class="flex-1 border rounded-full px-4 py-2 focus:outline-none focus:border-primary"
+        />
+        <button
+          id="send-message"
+          class="bg-primary text-white px-4 py-2 rounded-full hover:bg-secondary transition-colors"
+        >
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const chatbotToggle = document.getElementById('chatbot-toggle');
+  const chatbotWindow = document.getElementById('chatbot-window');
+  const chatbotClose = document.getElementById('chatbot-close');
+  const chatMessages = document.getElementById('chat-messages');
+  const chatInput = document.getElementById('chat-input');
+  const sendMessage = document.getElementById('send-message');
+  const quickReplies = document.querySelectorAll('.quick-reply');
+
+  // Toggle chatbot window
+  chatbotToggle?.addEventListener('click', () => {
+    chatbotWindow?.classList.toggle('hidden');
+  });
+
+  chatbotClose?.addEventListener('click', () => {
+    chatbotWindow?.classList.add('hidden');
+  });
+
+  // Handle sending messages
+  function addMessage(message: string, isUser: boolean) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `mb-4 ${isUser ? 'text-right' : ''}`;
+    
+    const messageContent = document.createElement('div');
+    messageContent.className = `${
+      isUser ? 'bg-primary text-white' : 'bg-gray-100'
+    } p-3 rounded-lg inline-block`;
+    messageContent.textContent = message;
+    
+    messageDiv.appendChild(messageContent);
+    chatMessages?.appendChild(messageDiv);
+    chatMessages?.scrollTo(0, chatMessages.scrollHeight);
+  }
+
+  function handleSendMessage() {
+    const message = chatInput?.value.trim();
+    if (message) {
+      addMessage(message, true);
+      chatInput.value = '';
+      
+      // Simulate bot response
+      setTimeout(() => {
+        addMessage('Gracias por tu mensaje. Un agente se pondrá en contacto contigo pronto.', false);
+      }, 1000);
+    }
+  }
+
+  sendMessage?.addEventListener('click', handleSendMessage);
+  chatInput?.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      handleSendMessage();
+    }
+  });
+
+  // Handle quick replies
+  quickReplies.forEach(button => {
+    button.addEventListener('click', () => {
+      const message = button.textContent;
+      if (message) {
+        addMessage(message, true);
+        
+        // Simulate bot response based on quick reply
+        setTimeout(() => {
+          let response = '';
+          switch (message) {
+            case 'Servicios':
+              response = 'Ofrecemos servicios de desarrollo de software, diseño web, consultoría IT y más. ¿Te gustaría conocer más detalles sobre algún servicio en particular?';
+              break;
+            case 'Precios':
+              response = 'Tenemos diferentes planes adaptados a tus necesidades. ¿Te gustaría que te explique sobre nuestros planes Individual, PYME o Empresa?';
+              break;
+            case 'Contacto':
+              response = 'Puedes contactarnos a través de nuestro formulario en la sección de contacto, por teléfono al +123456789 o por email a contacto@soitco.com';
+              break;
+            default:
+              response = 'Gracias por tu mensaje. ¿En qué más puedo ayudarte?';
+          }
+          addMessage(response, false);
+        }, 1000);
+      }
+    });
+  });
+</script>

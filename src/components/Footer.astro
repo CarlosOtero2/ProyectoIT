@@ -1,0 +1,33 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-gray-900 text-white py-12">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-xl font-bold mb-4">SOITCO</h3>
+        <p class="text-gray-400">
+          Soluciones tecnológicas innovadoras para impulsar tu negocio hacia el futuro.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-4">Contacto</h3>
+        <ul class="text-gray-400">
+          <li>Email: contacto@soitco.com</li>
+          <li>Teléfono: +1 234 567 890</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold mb-4">Enlaces</h3>
+        <ul class="text-gray-400">
+          <li><a href="/politicas" class="hover:text-white">Políticas de Privacidad</a></li>
+          <li><a href="/terminos" class="hover:text-white">Términos de Uso</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+      <p>&copy; {currentYear} SOITCO. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>

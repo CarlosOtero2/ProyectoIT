@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ProjectFilter from '../components/ProjectFilter.astro';
+
+const categories = [
+  'Desarrollo Web',
+  'Aplicaciones Móviles',
+  'Consultoría',
+  'Transformación Digital',
+  'E-commerce'
+];
+
+const projects = [
+  {
+    title: 'Plataforma E-commerce B2B',
+    client: 'TechCorp Industries',
+    year: 2023,
+    description: 'Desarrollo de una plataforma de comercio electrónico B2B con integración de sistemas ERP y gestión de inventario en tiempo real.',
+    services: ['Desarrollo Web', 'E-commerce', 'Integración de Sistemas'],
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
+    technologies: ['React', 'Node.js', 'MongoDB', 'AWS'],
+    category: 'E-commerce'
+  },
+  {
+    title: 'App de Gestión Logística',
+    client: 'LogisTech Solutions',
+    year: 2023,
+    description: 'Aplicación móvil para la gestión y seguimiento de flotas de transporte con análisis de datos en tiempo real.',
+    services: ['Desarrollo Móvil', 'Análisis de Datos', 'IoT'],
+    image: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800',
+    technologies: ['React Native', 'Firebase', 'Python', 'TensorFlow'],
+    category: 'Aplicaciones Móviles'
+  },
+  {
+    title: 'Transformación Digital Bancaria',
+    client: 'Banco Innovación',
+    year: 2022,
+    description: 'Consultoría y implementación de estrategia de transformación digital para modernizar servicios bancarios.',
+    services: ['Consultoría', 'Transformación Digital', 'Desarrollo Web'],
+    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800',
+    technologies: ['Angular', 'Java', 'Oracle', 'Kubernetes'],
+    category: 'Transformación Digital'
+  },
+  {
+    title: 'Portal Corporativo',
+    client: 'Grupo Empresarial XYZ',
+    year: 2022,
+    description: 'Diseño y desarrollo de portal corporativo con intranet y sistema de gestión de contenidos personalizado.',
+    services: ['Desarrollo Web', 'UX/UI', 'CMS'],
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
+    technologies: ['Vue.js', 'Laravel', 'PostgreSQL', 'Docker'],
+    category: 'Desarrollo Web'
+  }
+];
+---
+
+<Layout
+  title="Proyectos - SOITCO"
+  description="Descubre nuestros casos de éxito y proyectos destacados"
+>
+  <PageHeader
+    title="Nuestros Proyectos"
+    description="Casos de éxito que demuestran nuestro compromiso con la excelencia"
+  />
+
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <ProjectFilter categories={categories} />
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map(project => (
+          <div data-category={project.category}>
+            <ProjectCard {...project} />
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-16 text-center">
+        <h2 class="text-2xl font-bold mb-4">¿Listo para comenzar tu proyecto?</h2>
+        <p class="text-gray-600 mb-8">
+          Contáctanos para discutir cómo podemos ayudarte a alcanzar tus objetivos tecnológicos
+        </p>
+        <a
+          href="/contacto"
+          class="inline-block bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-secondary transition-colors"
+        >
+          Iniciar Proyecto
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,54 @@
+---
+interface Props {
+  categories: string[];
+}
+
+const { categories } = Astro.props;
+---
+
+<div class="mb-8">
+  <div class="flex flex-wrap gap-4 justify-center">
+    <button
+      class="bg-primary text-white px-6 py-2 rounded-full hover:bg-secondary transition-colors"
+      data-filter="all"
+    >
+      Todos
+    </button>
+    {categories.map(category => (
+      <button
+        class="bg-white text-gray-700 px-6 py-2 rounded-full hover:bg-gray-100 transition-colors"
+        data-filter={category}
+      >
+        {category}
+      </button>
+    ))}
+  </div>
+</div>
+
+<script>
+  const filterButtons = document.querySelectorAll('[data-filter]');
+  const projects = document.querySelectorAll('[data-category]');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+      
+      // Update active button styles
+      filterButtons.forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-white');
+        btn.classList.add('bg-white', 'text-gray-700');
+      });
+      button.classList.remove('bg-white', 'text-gray-700');
+      button.classList.add('bg-primary', 'text-white');
+
+      // Filter projects
+      projects.forEach(project => {
+        if (filter === 'all' || project.getAttribute('data-category') === filter) {
+          project.classList.remove('hidden');
+        } else {
+          project.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

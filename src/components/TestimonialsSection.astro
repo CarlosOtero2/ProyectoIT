@@ -1,0 +1,43 @@
+---
+import TestimonialCard from './TestimonialCard.astro';
+
+const testimonials = [
+  {
+    name: 'Laura Martínez',
+    position: 'Directora de Operaciones',
+    company: 'TechCorp',
+    content: 'SOITCO transformó completamente nuestra infraestructura IT. Su equipo profesional y dedicado hizo que la transición fuera sin problemas.',
+    image: 'https://i.pravatar.cc/150?img=1'
+  },
+  {
+    name: 'Carlos Ruiz',
+    position: 'CEO',
+    company: 'Innovatech',
+    content: 'El servicio de consultoría de SOITCO nos ayudó a optimizar nuestros procesos y reducir costos significativamente.',
+    image: 'https://i.pravatar.cc/150?img=2'
+  },
+  {
+    name: 'Ana García',
+    position: 'Gerente de Proyectos',
+    company: 'DataSys',
+    content: 'La calidad del desarrollo de software y el soporte técnico de SOITCO es excepcional. Altamente recomendados.',
+    image: 'https://i.pravatar.cc/150?img=3'
+  }
+];
+---
+
+<section class="py-16">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">Lo que dicen nuestros clientes</h2>
+      <p class="text-xl text-gray-600">
+        Historias de éxito de quienes confían en nosotros
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonials.map(testimonial => (
+        <TestimonialCard {...testimonial} />
+      ))}
+    </div>
+  </div>
+</section>

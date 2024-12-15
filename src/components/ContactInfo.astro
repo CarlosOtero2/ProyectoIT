@@ -1,0 +1,42 @@
+---
+const contactMethods = [
+  {
+    icon: 'fas fa-envelope',
+    title: 'Email',
+    value: 'contacto@soitco.com',
+    href: 'mailto:contacto@soitco.com',
+    color: 'bg-blue-500'
+  },
+  {
+    icon: 'fas fa-phone',
+    title: 'Teléfono',
+    value: '+1 234 567 890',
+    href: 'tel:+1234567890',
+    color: 'bg-green-500'
+  },
+  {
+    icon: 'fab fa-whatsapp',
+    title: 'WhatsApp',
+    value: 'Envíanos un mensaje',
+    href: 'https://wa.me/1234567890',
+    color: 'bg-green-600'
+  }
+];
+---
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  {contactMethods.map(method => (
+    <a
+      href={method.href}
+      class="flex items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+    >
+      <div class={`${method.color} p-3 rounded-full text-white mr-4`}>
+        <i class={`${method.icon} text-xl`}></i>
+      </div>
+      <div>
+        <h3 class="font-bold">{method.title}</h3>
+        <p class="text-gray-600">{method.value}</p>
+      </div>
+    </a>
+  ))}
+</div>

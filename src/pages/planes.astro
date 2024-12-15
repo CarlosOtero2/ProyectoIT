@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PricingCard from '../components/PricingCard.astro';
+import FAQItem from '../components/FAQItem.astro';
+
+const plans = [
+  {
+    title: 'Individual',
+    price: '$99',
+    description: 'Ideal para profesionales independientes y pequeños proyectos',
+    features: [
+      { name: 'Soporte básico', included: true },
+      { name: 'Consultoría mensual', included: true },
+      { name: 'Desarrollo personalizado', included: false },
+      { name: 'Atención 24/7', included: false },
+      { name: 'Servicios en la nube', included: false }
+    ]
+  },
+  {
+    title: 'PYME',
+    price: '$299',
+    description: 'Perfecto para empresas en crecimiento',
+    features: [
+      { name: 'Soporte prioritario', included: true },
+      { name: 'Consultoría semanal', included: true },
+      { name: 'Desarrollo personalizado', included: true },
+      { name: 'Atención 24/7', included: false },
+      { name: 'Servicios en la nube', included: true }
+    ],
+    highlighted: true
+  },
+  {
+    title: 'Empresa',
+    price: '$999',
+    description: 'Solución completa para grandes empresas',
+    features: [
+      { name: 'Soporte dedicado', included: true },
+      { name: 'Consultoría ilimitada', included: true },
+      { name: 'Desarrollo personalizado', included: true },
+      { name: 'Atención 24/7', included: true },
+      { name: 'Servicios en la nube', included: true }
+    ]
+  }
+];
+
+const faqs = [
+  {
+    question: '¿Qué incluye el soporte técnico?',
+    answer: 'Nuestro soporte técnico incluye asistencia por teléfono, email y chat, resolución de problemas, mantenimiento preventivo y actualizaciones de seguridad.'
+  },
+  {
+    question: '¿Puedo cambiar de plan en cualquier momento?',
+    answer: 'Sí, puedes actualizar o cambiar tu plan en cualquier momento. Los cambios se aplicarán en el siguiente ciclo de facturación.'
+  },
+  {
+    question: '¿Hay un período mínimo de contrato?',
+    answer: 'Los planes se facturan mensualmente y no requieren compromiso a largo plazo. Puedes cancelar en cualquier momento.'
+  },
+  {
+    question: '¿Ofrecen descuentos para organizaciones sin fines de lucro?',
+    answer: 'Sí, ofrecemos descuentos especiales para organizaciones sin fines de lucro y instituciones educativas. Contáctanos para más información.'
+  }
+];
+---
+
+<Layout
+  title="Planes y Precios - SOITCO"
+  description="Descubre nuestros planes de servicios IT adaptados a tus necesidades"
+>
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold mb-4">Planes y Precios</h1>
+        <p class="text-xl text-gray-600">
+          Soluciones flexibles adaptadas a las necesidades de tu empresa
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        {plans.map(plan => (
+          <PricingCard {...plan} />
+        ))}
+      </div>
+
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-8">Preguntas Frecuentes</h2>
+        <div class="space-y-4">
+          {faqs.map(faq => (
+            <FAQItem {...faq} />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

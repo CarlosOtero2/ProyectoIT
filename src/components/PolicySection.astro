@@ -1,0 +1,15 @@
+---
+interface Props {
+  title: string;
+  content: string[];
+}
+
+const { title, content } = Astro.props;
+---
+
+<div class="mb-12">
+  <h2 class="text-2xl font-bold mb-4">{title}</h2>
+  {content.map(paragraph => (
+    <p class="text-gray-600 mb-4">{paragraph}</p>
+  ))}
+</div>

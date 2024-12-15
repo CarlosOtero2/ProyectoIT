@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const services = [
+  {
+    title: 'Desarrollo de Software',
+    description: 'Creamos soluciones de software personalizadas que optimizan sus procesos empresariales y mejoran la eficiencia operativa.',
+    features: [
+      'Aplicaciones web y móviles',
+      'Software empresarial a medida',
+      'Integración de sistemas',
+      'Mantenimiento y soporte'
+    ],
+    icon: 'fas fa-code'
+  },
+  {
+    title: 'Diseño y Desarrollo Web',
+    description: 'Diseñamos y desarrollamos sitios web modernos, responsivos y optimizados para brindar la mejor experiencia de usuario.',
+    features: [
+      'Diseño web responsivo',
+      'Optimización SEO',
+      'E-commerce',
+      'Gestores de contenido'
+    ],
+    icon: 'fas fa-desktop'
+  },
+  {
+    title: 'Consultoría en Tecnología',
+    description: 'Asesoramiento estratégico para ayudar a su empresa a tomar las mejores decisiones tecnológicas.',
+    features: [
+      'Análisis de infraestructura',
+      'Planificación estratégica',
+      'Optimización de procesos',
+      'Transformación digital'
+    ],
+    icon: 'fas fa-lightbulb'
+  },
+  {
+    title: 'Soporte Técnico IT',
+    description: 'Servicio de soporte técnico profesional para mantener su infraestructura tecnológica funcionando sin problemas.',
+    features: [
+      'Soporte remoto y presencial',
+      'Mantenimiento preventivo',
+      'Resolución de incidencias',
+      'Monitoreo 24/7'
+    ],
+    icon: 'fas fa-headset'
+  },
+  {
+    title: 'Creación de Contenidos Digitales',
+    description: 'Desarrollamos contenido digital atractivo y estratégico para fortalecer su presencia en línea.',
+    features: [
+      'Marketing de contenidos',
+      'Diseño gráfico',
+      'Producción audiovisual',
+      'Gestión de redes sociales'
+    ],
+    icon: 'fas fa-pen-fancy'
+  }
+];
+---
+
+<Layout
+  title="Servicios de SOITCO - Soluciones Tecnológicas Integrales"
+  description="Descubre nuestra amplia gama de servicios tecnológicos diseñados para impulsar tu negocio."
+>
+  <PageHeader
+    title="Nuestros Servicios"
+    description="Soluciones tecnológicas integrales para cada necesidad"
+  />
+
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 gap-12">
+        {services.map((service, index) => (
+          <div class={`flex flex-col md:flex-row gap-8 items-start ${index % 2 ? 'md:flex-row-reverse' : ''}`}>
+            <div class="md:w-1/3 text-center md:text-left">
+              <div class="inline-block p-6 bg-primary bg-opacity-10 rounded-full mb-4">
+                <i class={`${service.icon} text-4xl text-primary`}></i>
+              </div>
+              <h2 class="text-2xl font-bold mb-4">{service.title}</h2>
+              <p class="text-gray-600">{service.description}</p>
+            </div>
+            <div class="md:w-2/3 bg-white p-8 rounded-lg shadow-md">
+              <h3 class="text-xl font-bold mb-4">Características</h3>
+              <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {service.features.map(feature => (
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-primary mr-2"></i>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-8">¿Listo para empezar?</h2>
+      <p class="text-xl text-gray-600 mb-8">
+        Contáctanos hoy mismo para discutir cómo podemos ayudarte a alcanzar tus objetivos tecnológicos
+      </p>
+      <a
+        href="/contacto"
+        class="inline-block bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-secondary transition-colors"
+      >
+        Solicitar Consulta
+      </a>
+    </div>
+  </section>
+</Layout>

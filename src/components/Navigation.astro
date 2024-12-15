@@ -1,0 +1,34 @@
+---
+const menuItems = [
+  { path: '/', label: 'Inicio' },
+  { path: '/acerca', label: 'Acerca' },
+  { path: '/servicios', label: 'Servicios' },
+  { path: '/planes', label: 'Planes' },
+  { path: '/politicas', label: 'Políticas' },
+  { path: '/contacto', label: 'Contacto' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="bg-white shadow-lg">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between h-16">
+      <div class="flex-shrink-0 flex items-center">
+        <a href="/" class="text-2xl font-bold text-primary"><strong> SOITCO </strong></a>
+      </div>
+      <div class="hidden md:flex items-center space-x-8">
+        {menuItems.map(item => (
+          <a
+            href={item.path}
+            class={`text-gray-700 hover:text-primary px-3 py-2 text-sm font-medium ${
+              currentPath === item.path ? 'text-primary' : ''
+            }`}
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</nav>

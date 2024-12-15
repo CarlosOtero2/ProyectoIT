@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Map from '../components/Map.astro';
+import ContactInfo from '../components/ContactInfo.astro';
+---
+
+<Layout
+  title="Contacto - SOITCO"
+  description="Ponte en contacto con nosotros para impulsar tu proyecto tecnológico"
+>
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold mb-4">Contacto</h1>
+        <p class="text-xl text-gray-600">
+          Estamos aquí para ayudarte. ¡Contáctanos!
+        </p>
+      </div>
+
+      <div class="mb-12">
+        <ContactInfo />
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold mb-6">Envíanos un mensaje</h2>
+          <ContactForm />
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold mb-6">Nuestra ubicación</h2>
+          <Map />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

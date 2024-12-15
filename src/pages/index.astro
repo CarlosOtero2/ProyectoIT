@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import AboutSection from '../components/AboutSection.astro';
+import TestimonialsSection from '../components/TestimonialsSection.astro';
+import PanamaSection from '../components/PanamaSection.astro';
+import PanamaStats from '../components/PanamaStats.astro';
+
+const services = [
+  {
+    title: 'Desarrollo de Software',
+    description: 'Soluciones personalizadas para optimizar sus procesos empresariales.',
+    icon: 'fas fa-code'
+  },
+  {
+    title: 'Diseño y Desarrollo Web',
+    description: 'Sitios web modernos y responsivos que destacan su marca.',
+    icon: 'fas fa-desktop'
+  },
+  {
+    title: 'Consultoría en Tecnología',
+    description: 'Asesoramiento experto para transformar su negocio digitalmente.',
+    icon: 'fas fa-lightbulb'
+  },
+  {
+    title: 'Soporte Técnico IT',
+    description: 'Asistencia técnica confiable para mantener su infraestructura.',
+    icon: 'fas fa-headset'
+  },
+  {
+    title: 'Contenidos Digitales',
+    description: 'Creación de contenido atractivo para su presencia digital.',
+    icon: 'fas fa-pen-fancy'
+  }
+];
+---
+
+<Layout title="SOITCO - Servicios Profesionales de IT">
+  <section class="bg-gradient-to-r from-primary to-secondary text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6">
+        Soluciones Tecnológicas para el Futuro de Panamá
+      </h1>
+      <p class="text-xl mb-8">
+        Impulsando la innovación y el desarrollo tecnológico en el corazón de América Central
+      </p>
+      <a
+        href="/contacto"
+        class="bg-white text-primary px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors"
+      >
+        Contáctanos
+      </a>
+    </div>
+  </section>
+
+  <AboutSection />
+
+  <PanamaSection />
+
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Nuestros Servicios</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map(service => (
+          <ServiceCard {...service} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <PanamaStats />
+
+  <TestimonialsSection />
+
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-8">¿Por qué elegir SOITCO?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <i class="fas fa-award text-4xl text-primary mb-4"></i>
+          <h3 class="text-xl font-bold mb-2">Experiencia Local</h3>
+          <p class="text-gray-600">Conocimiento profundo del mercado panameño</p>
+        </div>
+        <div>
+          <i class="fas fa-users text-4xl text-primary mb-4"></i>
+          <h3 class="text-xl font-bold mb-2">Equipo Profesional</h3>
+          <p class="text-gray-600">Talento local certificado en tecnologías modernas</p>
+        </div>
+        <div>
+          <i class="fas fa-rocket text-4xl text-primary mb-4"></i>
+          <h3 class="text-xl font-bold mb-2">Innovación Constante</h3>
+          <p class="text-gray-600">Soluciones adaptadas al mercado local</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

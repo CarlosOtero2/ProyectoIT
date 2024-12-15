@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="¡Gracias por tu suscripción! - SOITCO">
+  <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <div class="mb-6">
+          <i class="fas fa-check-circle text-6xl text-green-500"></i>
+        </div>
+        <h1 class="text-3xl font-bold mb-4">¡Gracias por tu suscripción!</h1>
+        <p class="text-xl text-gray-600 mb-8">
+          Tu cuenta ha sido activada exitosamente. Hemos enviado un correo de confirmación con los detalles de tu plan.
+        </p>
+        <div class="space-y-4">
+          <a
+            href="/dashboard"
+            class="inline-block bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-secondary transition-colors"
+          >
+            Ir al Dashboard
+          </a>
+          <p class="text-sm text-gray-500">
+            Si tienes alguna pregunta, no dudes en <a href="/contacto" class="text-primary hover:underline">contactarnos</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,40 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import Chatbot from '../components/Chatbot.astro';
+import '@fontsource/inter';
+import '@fontsource/wallpoet';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'SOITCO - Servicios profesionales de IT' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <title>{title}</title>
+    <style>
+      body {
+        font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col bg-background-light">
+    <Navigation />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <Footer />
+    <Chatbot />
+  </body>
+</html>

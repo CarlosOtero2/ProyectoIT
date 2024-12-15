@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import PolicySection from '../components/PolicySection.astro';
+
+const privacyPolicy = {
+  title: "Política de Privacidad",
+  sections: [
+    {
+      title: "Recopilación de Información",
+      content: [
+        "En SOITCO, nos comprometemos a proteger la privacidad de nuestros usuarios. Recopilamos información personal únicamente cuando es proporcionada voluntariamente a través de nuestros formularios de contacto o registro.",
+        "La información que podemos recopilar incluye: nombre, dirección de correo electrónico, número de teléfono y cualquier otra información que usted decida proporcionarnos."
+      ]
+    },
+    {
+      title: "Uso de la Información",
+      content: [
+        "La información recopilada se utiliza exclusivamente para:",
+        "• Proporcionar los servicios solicitados",
+        "• Responder a sus consultas y solicitudes",
+        "• Mejorar nuestros servicios y experiencia del usuario",
+        "• Enviar comunicaciones relevantes sobre nuestros servicios (con su consentimiento)"
+      ]
+    },
+    {
+      title: "Protección de Datos",
+      content: [
+        "Implementamos medidas de seguridad técnicas y organizativas apropiadas para proteger sus datos personales contra el acceso no autorizado, la modificación, divulgación o destrucción no autorizada.",
+        "Sus datos personales se almacenan en servidores seguros y solo son accesibles por un número limitado de personas que tienen derechos de acceso especiales."
+      ]
+    },
+    {
+      title: "Cookies y Tecnologías de Seguimiento",
+      content: [
+        "Utilizamos cookies y tecnologías similares para mejorar la experiencia del usuario en nuestro sitio web. Estas tecnologías nos ayudan a:",
+        "• Mantener su sesión activa",
+        "• Recordar sus preferencias",
+        "• Analizar el uso del sitio web para mejorarlo continuamente"
+      ]
+    }
+  ]
+};
+
+const termsOfUse = {
+  title: "Términos de Uso",
+  sections: [
+    {
+      title: "Aceptación de los Términos",
+      content: [
+        "Al acceder y utilizar este sitio web, usted acepta estar sujeto a estos términos y condiciones de uso. Si no está de acuerdo con alguno de estos términos, le rogamos que no utilice nuestro sitio web o servicios."
+      ]
+    },
+    {
+      title: "Uso del Sitio",
+      content: [
+        "Usted se compromete a utilizar nuestro sitio web únicamente para fines legales y de una manera que no infrinja los derechos de otros usuarios o restrinja su uso del sitio.",
+        "No está permitido utilizar este sitio web de ninguna manera que pueda dañar, deshabilitar, sobrecargar o deteriorar el servidor o las redes conectadas al servidor."
+      ]
+    },
+    {
+      title: "Propiedad Intelectual",
+      content: [
+        "Todo el contenido presente en este sitio web, incluyendo pero no limitado a textos, gráficos, logotipos, imágenes, clips de audio, descargas digitales y compilaciones de datos, es propiedad de SOITCO o de sus proveedores de contenido y está protegido por las leyes de propiedad intelectual."
+      ]
+    },
+    {
+      title: "Limitación de Responsabilidad",
+      content: [
+        "SOITCO no será responsable por daños directos, indirectos, incidentales, consecuentes o punitivos resultantes del uso o la imposibilidad de usar nuestros servicios.",
+        "Nos esforzamos por mantener la información en este sitio web actualizada y precisa, pero no garantizamos la exactitud, integridad o actualidad de la información proporcionada."
+      ]
+    }
+  ]
+};
+---
+
+<Layout
+  title="Políticas y Términos de Uso - SOITCO"
+  description="Políticas de privacidad y términos de uso de SOITCO"
+>
+  <PageHeader
+    title="Políticas y Términos de Uso"
+    description="Información importante sobre el uso de nuestros servicios"
+  />
+
+  <div class="max-w-4xl mx-auto px-4 py-16">
+    <div class="bg-white rounded-lg shadow-md p-8">
+      <div class="mb-16">
+        <h1 class="text-3xl font-bold mb-8">{privacyPolicy.title}</h1>
+        {privacyPolicy.sections.map(section => (
+          <PolicySection title={section.title} content={section.content} />
+        ))}
+      </div>
+
+      <div class="border-t pt-16">
+        <h1 class="text-3xl font-bold mb-8">{termsOfUse.title}</h1>
+        {termsOfUse.sections.map(section => (
+          <PolicySection title={section.title} content={section.content} />
+        ))}
+      </div>
+
+      <div class="mt-12 p-6 bg-gray-50 rounded-lg">
+        <p class="text-gray-600 text-sm">
+          Última actualización: {new Date().toLocaleDateString()}
+        </p>
+        <p class="text-gray-600 text-sm mt-2">
+          Si tiene alguna pregunta sobre nuestras políticas o términos de uso, no dude en
+          <a href="/contacto" class="text-primary hover:underline">contactarnos</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</Layout>

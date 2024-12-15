@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PlanSelector from '../../components/subscription/PlanSelector.astro';
+---
+
+<Layout title="Selecciona tu Plan - SOITCO">
+  <div class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold mb-4">Selecciona tu Plan</h1>
+        <p class="text-xl text-gray-600">
+          Elige el plan que mejor se adapte a tus necesidades
+        </p>
+      </div>
+
+      <PlanSelector />
+
+      <div class="mt-12 text-center">
+        <p class="text-gray-600">
+          Todos los planes incluyen una garantía de devolución de 30 días
+        </p>
+      </div>
+    </div>
+  </div>
+</Layout>

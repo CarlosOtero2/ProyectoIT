@@ -1,0 +1,40 @@
+---
+const stats = [
+  {
+    number: "50+",
+    label: "Proyectos Locales",
+    icon: "fas fa-project-diagram"
+  },
+  {
+    number: "10+",
+    label: "Colaboradores 100% Panameños",
+    icon: "fas fa-users"
+  },
+  {
+    number: "50+",
+    label: "Alianzas Locales",
+    icon: "fas fa-handshake"
+  },
+  {
+    number: "2+",
+    label: "Años en Panamá",
+    icon: "fas fa-calendar-alt"
+  }
+];
+---
+
+<section class="py-12 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {stats.map(stat => (
+        <div class="text-center">
+          <div class="inline-block p-4 bg-primary bg-opacity-10 rounded-full mb-4">
+            <i class={`${stat.icon} text-2xl text-primary`}></i>
+          </div>
+          <p class="text-3xl font-bold text-primary mb-2">{stat.number}</p>
+          <p class="text-gray-600">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

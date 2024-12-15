@@ -1,0 +1,48 @@
+---
+interface Props {
+  title: string;
+  client: string;
+  year: number;
+  description: string;
+  services: string[];
+  image: string;
+  technologies: string[];
+}
+
+const { title, client, year, description, services, image, technologies } = Astro.props;
+---
+
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-[1.02]">
+  <img
+    src={image}
+    alt={`Proyecto ${title}`}
+    class="w-full h-48 object-cover"
+  />
+  <div class="p-6">
+    <div class="flex justify-between items-start mb-4">
+      <h3 class="text-xl font-bold">{title}</h3>
+      <span class="text-sm text-gray-500">{year}</span>
+    </div>
+    <p class="text-gray-600 mb-4">{description}</p>
+    <div class="mb-4">
+      <h4 class="font-semibold mb-2">Servicios Implementados:</h4>
+      <div class="flex flex-wrap gap-2">
+        {services.map(service => (
+          <span class="bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-full text-sm">
+            {service}
+          </span>
+        ))}
+      </div>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-2">Tecnologías:</h4>
+      <div class="flex flex-wrap gap-2">
+        {technologies.map(tech => (
+          <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>

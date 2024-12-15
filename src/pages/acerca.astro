@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import TeamMember from '../components/TeamMember.astro';
+
+const team = [
+  {
+    name: 'Carlos I. Otero E.',
+    position: 'CEO & Fundador',
+    image: '/img/Carlos-Otero-Desarrollador-Sotware.jpg'
+  },
+  {
+    name: 'Carlos Rodríguez',
+    position: 'Director Técnico',
+    image: 'https://i.pravatar.cc/300?img=2'
+  },
+  {
+    name: 'María López',
+    position: 'Directora de Innovación',
+    image: 'https://i.pravatar.cc/300?img=3'
+  }
+];
+---
+
+<Layout 
+  title="Acerca de SOITCO - Nuestra Historia y Equipo"
+  description="Conoce más sobre SOITCO, nuestra misión, visión y el equipo detrás de nuestro éxito."
+>
+  <PageHeader
+    title="Acerca de SOITCO"
+    description="Innovación y excelencia en servicios de tecnología"
+  />
+
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold mb-6">Nuestra Historia</h2>
+          <p class="text-gray-600 mb-4">
+            Fundada en 2024, SOITCO nació con la visión de transformar la manera en que las empresas
+            abordan sus necesidades tecnológicas. Desde entonces, hemos ayudado a cientos de
+            organizaciones a alcanzar sus objetivos digitales.
+          </p>
+          <p class="text-gray-600">
+            Nuestro compromiso con la excelencia y la innovación nos ha permitido crecer y
+            convertirnos en un referente en el sector de servicios IT.
+          </p>
+        </div>
+        <div class="bg-gray-100 p-8 rounded-lg">
+          <h3 class="text-2xl font-bold mb-4">Nuestros Valores</h3>
+          <ul class="space-y-4">
+            <li class="flex items-center">
+              <i class="fas fa-check-circle text-primary mr-3"></i>
+              <span>Excelencia en cada proyecto</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check-circle text-primary mr-3"></i>
+              <span>Innovación constante</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check-circle text-primary mr-3"></i>
+              <span>Compromiso con el cliente</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check-circle text-primary mr-3"></i>
+              <span>Trabajo en equipo</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Nuestro Equipo</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        {team.map(member => (
+          <TeamMember {...member} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6">Nuestra Misión y Visión</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-4">Misión</h3>
+          <p class="text-gray-600">
+            Proporcionar soluciones tecnológicas innovadoras que impulsen el crecimiento y
+            éxito de nuestros clientes, a través de servicios de alta calidad y un equipo
+            altamente capacitado.
+          </p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-4">Visión</h3>
+          <p class="text-gray-600">
+            Ser reconocidos como líderes en la transformación digital de empresas,
+            estableciendo nuevos estándares de excelencia en servicios de tecnología
+            a nivel nacional e internacional.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
